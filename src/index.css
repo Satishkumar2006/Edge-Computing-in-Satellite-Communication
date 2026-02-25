@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 25% 4%;
+    --foreground: 195 100% 90%;
+
+    --card: 225 30% 7%;
+    --card-foreground: 195 80% 85%;
+
+    --popover: 225 30% 7%;
+    --popover-foreground: 195 80% 85%;
+
+    --primary: 185 100% 50%;
+    --primary-foreground: 230 25% 4%;
+
+    --secondary: 260 60% 20%;
+    --secondary-foreground: 195 80% 85%;
+
+    --muted: 225 20% 12%;
+    --muted-foreground: 215 30% 55%;
+
+    --accent: 160 100% 45%;
+    --accent-foreground: 230 25% 4%;
+
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 30 100% 55%;
+
+    --border: 215 40% 16%;
+    --input: 215 40% 16%;
+    --ring: 185 100% 50%;
+
+    --radius: 0.5rem;
+
+    --glow-primary: 0 0 20px hsl(185 100% 50% / 0.4), 0 0 60px hsl(185 100% 50% / 0.1);
+    --glow-accent: 0 0 20px hsl(160 100% 45% / 0.4), 0 0 60px hsl(160 100% 45% / 0.1);
+    --glow-warning: 0 0 15px hsl(30 100% 55% / 0.5);
+
+    --sidebar-background: 225 30% 7%;
+    --sidebar-foreground: 195 80% 85%;
+    --sidebar-primary: 185 100% 50%;
+    --sidebar-primary-foreground: 230 25% 4%;
+    --sidebar-accent: 225 20% 12%;
+    --sidebar-accent-foreground: 195 80% 85%;
+    --sidebar-border: 215 40% 16%;
+    --sidebar-ring: 185 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-mono;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Orbitron', sans-serif;
+  }
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+  .glow-text {
+    text-shadow: 0 0 10px hsl(185 100% 50% / 0.6), 0 0 30px hsl(185 100% 50% / 0.2);
+  }
+  .glow-text-accent {
+    text-shadow: 0 0 10px hsl(160 100% 45% / 0.6), 0 0 30px hsl(160 100% 45% / 0.2);
+  }
+  .border-glow {
+    border: 1px solid hsl(185 100% 50% / 0.3);
+    box-shadow: inset 0 0 20px hsl(185 100% 50% / 0.05), 0 0 15px hsl(185 100% 50% / 0.1);
+  }
+  .scanline {
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      hsl(185 100% 50% / 0.03) 2px,
+      hsl(185 100% 50% / 0.03) 4px
+    );
+  }
+}
+
+/* Orbital animation */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(var(--orbit-radius)) rotate(-360deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+@keyframes data-stream {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes sweep {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-orbit {
+  animation: orbit var(--orbit-duration, 20s) linear infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+.animate-sweep {
+  animation: sweep 4s linear infinite;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(225 30% 7%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(185 100% 50% / 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(185 100% 50% / 0.5);
+}
