@@ -104,16 +104,15 @@ const VideoCompressionSection = ({ data, loading }: Props) => {
             {/* LIVE RAW VIDEO PLAYER INJECTION */}
             <div className="aspect-video bg-black rounded-md border border-border flex items-center justify-center mb-4 overflow-hidden relative">
               <video 
-                className="w-full h-full object-cover" 
-                controls 
-                autoPlay 
-                loop 
-                muted
-              >
-                {/* IMPORTANT: Put your Ground Station's External IP below! */}
-                <source src="http://35.207.224.156/raw_earth_feed.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              className="w-full h-full object-cover" 
+              controls 
+              autoPlay 
+              loop 
+              muted
+            >
+              <source src="http://35.207.224.156/raw_earth_feed.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             </div>
             
             <div className="grid grid-cols-2 gap-3">
@@ -146,16 +145,15 @@ const VideoCompressionSection = ({ data, loading }: Props) => {
             {/* LIVE COMPRESSED VIDEO PLAYER INJECTION */}
             <div className="aspect-video bg-black rounded-md border border-accent/20 flex items-center justify-center mb-4 overflow-hidden relative">
               <video 
-                className="w-full h-full object-cover" 
-                controls 
-                autoPlay 
-                loop 
-                muted
-              >
-                {/* IMPORTANT: Put your Ground Station's External IP below! */}
-                <source src="http://35.207.224.156/compressed_payload.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+              className="w-full h-full object-cover" 
+              controls 
+              autoPlay 
+              loop 
+              muted
+            >
+              <source src="http://35.207.224.156/compressed_payload.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
             </div>
             
             <div className="grid grid-cols-2 gap-3">
